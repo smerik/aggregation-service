@@ -22,6 +22,7 @@ The aggregation service has been implemented with the following requirements:
     For example when the status is `BLOCKED`.
 * Exceptions
   * Do not expose internal API server errors to the outside world.
+* Expose the API over HTTPS
 
 ## Configuration
 The application configuration is using the embedded `application.properties` by default.
@@ -59,16 +60,19 @@ The following example shows the Maven command to run the Spring Boot application
 
 ### API
 Once the application has been started you can check out the API by using Swagger.
-This can be done by opening the following link: <http://localhost:8181/swagger-ui.html>.
+This can be done by opening the following link: <https://localhost:8443/swagger-ui.html>.
 
 If you're not interested in exploring the API via Swagger, you can try the following calls:
 * `/api/v1/power-of-attorneys`: Receives a list of all aggregated power of attorneys
-  * <http://localhost:8181/api/v1/power-of-attorneys>
+  * <https://localhost:8443/api/v1/power-of-attorneys>
 * `/api/v1/power-of-attorneys/{id}`: Receives the aggregated power of attorney for given ID. 
-  * <http://localhost:8181/api/v1/power-of-attorneys/0001>
-  * <http://localhost:8181/api/v1/power-of-attorneys/0002>
-  * <http://localhost:8181/api/v1/power-of-attorneys/0003>
-  * <http://localhost:8181/api/v1/power-of-attorneys/0004>
+  * <https://localhost:8443/api/v1/power-of-attorneys/0001>
+  * <https://localhost:8443/api/v1/power-of-attorneys/0002>
+  * <https://localhost:8443/api/v1/power-of-attorneys/0003>
+  * <https://localhost:8443/api/v1/power-of-attorneys/0004>
+
+Please note that the application is making use of a self-signed certificate.
+This means that the client needs to trust this certificate first before being able to connect. 
 
 ## Development
 * Don't add non project related generated files into the project `.gitignore` file.
